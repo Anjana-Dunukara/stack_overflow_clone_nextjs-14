@@ -35,6 +35,7 @@ const LeftSidebar = () => {
                 alt={item.label}
                 width={20}
                 height={20}
+                style={{ width: "20px", height: "auto" }}
                 className={`${isActive ? "" : "invert-colors"}`}
               />
               <p

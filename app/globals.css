@@ -8,6 +8,11 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.image {
+  max-width: 20px;
+  height: auto;
+}
+
 @layer utilities {
   .flex-center {
     @apply flex justify-center items-center;
