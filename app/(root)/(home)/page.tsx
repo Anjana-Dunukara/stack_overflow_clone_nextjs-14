@@ -5,79 +5,11 @@ import NoResult from "@/components/shared/NoResult";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
+import { getQuestions } from "@/lib/actions/question.action";
 import Link from "next/link";
-// import { getQuestions } from "@/lib/actions/question.action";
 
 export default async function Home() {
-  //   const questions = await getQuestions({});
-
-  const questions = {
-    questions: [
-      {
-        id: "1",
-        title: "How to learn programming?",
-        upVotes: 15,
-        questionToTags: [
-          {
-            questionId: "1",
-            tagId: "tag1",
-            tag: { id: "tag1", name: "Programming" },
-          },
-          {
-            questionId: "1",
-            tagId: "tag2",
-            tag: { id: "tag2", name: "Learning" },
-          },
-        ],
-        author: { id: "author1", name: "John Doe", avatar: "avatar1.jpg" },
-        views: 80,
-        answers: 5,
-        created_at: new Date("2024-01-15T08:30:00Z"),
-      },
-      {
-        id: "2",
-        title: "Best JavaScript libraries for web development?",
-        upVotes: 10,
-        questionToTags: [
-          {
-            questionId: "2",
-            tagId: "tag3",
-            tag: { id: "tag3", name: "JavaScript" },
-          },
-          {
-            questionId: "2",
-            tagId: "tag4",
-            tag: { id: "tag4", name: "Web Development" },
-          },
-        ],
-        author: { id: "author2", name: "Jane Smith", avatar: "avatar2.jpg" },
-        views: 60,
-        answers: 3,
-        created_at: new Date("2024-01-18T14:45:00Z"),
-      },
-      {
-        id: "3",
-        title: "Introduction to machine learning?",
-        upVotes: 12,
-        questionToTags: [
-          {
-            questionId: "3",
-            tagId: "tag5",
-            tag: { id: "tag5", name: "Machine Learning" },
-          },
-          {
-            questionId: "3",
-            tagId: "tag6",
-            tag: { id: "tag6", name: "Introduction" },
-          },
-        ],
-        author: { id: "author3", name: "Bob Johnson", avatar: "avatar3.jpg" },
-        views: 40,
-        answers: 7,
-        created_at: new Date("2024-01-20T10:15:00Z"),
-      },
-    ],
-  };
+  const result = await getQuestions({});
 
   return (
     <>
@@ -110,22 +42,20 @@ export default async function Home() {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions ? (
-          questions.questions?.map((question, i) => {
-            return (
-              <QuestionCard
-                key={i}
-                _id={question.id}
-                title={question.title}
-                upvotes={question.upVotes}
-                questionToTags={question.questionToTags}
-                author={question.author}
-                views={question.views}
-                answers={question.answers}
-                createdAt={question.created_at}
-              />
-            );
-          })
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
+            <QuestionCard
+              key={question._id}
+              _id={question._id}
+              title={question.title}
+              tags={question.tags}
+              author={question.author}
+              upvotes={question.upvotes}
+              views={question.views}
+              answers={question.answers}
+              createdAt={question.createdAt}
+            />
+          ))
         ) : (
           <NoResult
             title="There’s no question to show"

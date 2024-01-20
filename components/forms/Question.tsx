@@ -198,8 +198,6 @@ const Question = ({ mongoUserId }: Props) => {
                   <Input
                     className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
                     placeholder="Add tags..."
-                    value={field.value}
-                    onChange={(e) => form.setValue("tags", [e.target.value])}
                     onKeyDown={(e) => handleInputKeyDown(e, field)}
                   />
 

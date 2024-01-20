@@ -7,29 +7,25 @@ import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
 interface QuestionProps {
   _id: string;
   title: string;
-  questionToTags: {
-    questionId: string;
-    tagId: string;
-    tag: {
-      id: string;
-      name: string;
-    };
+  tags: {
+    _id: string;
+    name: string;
   }[];
   author: {
-    id: string;
+    _id: string;
     name: string;
-    avatar: string;
+    picture: string;
   };
   upvotes: number;
   views: number;
-  answers: number;
+  answers: Array<object>;
   createdAt: Date;
 }
 
 const QuestionCard = ({
   _id,
   title,
-  questionToTags,
+  tags,
   author,
   upvotes,
   views,
@@ -54,8 +50,8 @@ const QuestionCard = ({
       </div>
 
       <div className="mt-3.5 flex flex-wrap gap-2">
-        {questionToTags?.map((tags) => (
-          <RenderTag key={tags.tag.id} _id={tags.tag.id} name={tags.tag.name} />
+        {tags.map((tag) => (
+          <RenderTag key={tag._id} _id={tag._id} name={tag.name} />
         ))}
       </div>
 
@@ -65,7 +61,7 @@ const QuestionCard = ({
           alt="user"
           value={author.name}
           title={` - asked ${getTimestamp(createdAt)}`}
-          href={`/profile/${author.id}`}
+          href={`/profile/${author._id}`}
           isAuthor
           textStyles="body-medium text-dark400_light700"
         />
@@ -80,7 +76,7 @@ const QuestionCard = ({
         <Metric
           imgUrl="/assets/icons/message.svg"
           alt="message"
-          value={formatAndDivideNumber(answers)}
+          value={formatAndDivideNumber(answers.length)}
           title=" Answers"
           textStyles="small-medium text-dark400_light800"
         />
