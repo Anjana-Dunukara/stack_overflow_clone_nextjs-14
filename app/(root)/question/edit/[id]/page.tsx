@@ -10,7 +10,6 @@ const Page = async ({ params }: ParamsProps) => {
   if (!userId) return null;
 
   const mongoUser = await getUserById({ userId });
-  const mongoUserId = String(mongoUser._id);
   const result = await getQuestionById({ questionId: params.id });
 
   return (
@@ -20,7 +19,7 @@ const Page = async ({ params }: ParamsProps) => {
       <div className="mt-9">
         <Question
           type="Edit"
-          mongoUserId={mongoUserId}
+          mongoUserId={JSON.stringify(mongoUser)}
           questionDetails={JSON.stringify(result)}
         />
       </div>
