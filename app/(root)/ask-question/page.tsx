@@ -3,6 +3,16 @@ import { getUserById } from "@/lib/actions/user.action";
 import { redirect } from "next/navigation";
 import React from "react";
 import { auth } from "@clerk/nextjs";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ask-quuestion | DevFlow",
+  description:
+    "Platform for developers to collaborate, ask questions, and share knowledge within the developer community.",
+  icons: {
+    icon: "/assets/images/site-logo.svg",
+  },
+};
 
 const Page = async () => {
   const { userId } = auth();

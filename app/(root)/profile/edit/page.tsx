@@ -2,6 +2,16 @@ import Profile from "@/components/forms/Profile";
 import { getUserById } from "@/lib/actions/user.action";
 import { ParamsProps } from "@/types";
 import { auth } from "@clerk/nextjs";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Profile | DevFlow",
+  description:
+    "Platform for developers to collaborate, ask questions, and share knowledge within the developer community.",
+  icons: {
+    icon: "/assets/images/site-logo.svg",
+  },
+};
 
 const Page = async ({ params }: ParamsProps) => {
   const { userId } = auth();

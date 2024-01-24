@@ -5,7 +5,17 @@ import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { UserFilters } from "@/constants/filters";
 import { getAllUsers } from "@/lib/actions/user.action";
 import { SearchParamsProps } from "@/types";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Community | DevFlow",
+  description:
+    "Platform for developers to collaborate, ask questions, and share knowledge within the developer community.",
+  icons: {
+    icon: "/assets/images/site-logo.svg",
+  },
+};
 
 const Page = async ({ searchParams }: SearchParamsProps) => {
   const result = await getAllUsers({

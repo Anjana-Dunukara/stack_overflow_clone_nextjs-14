@@ -11,6 +11,16 @@ import ProfileLink from "@/components/shared/ProfileLink";
 import Stats from "@/components/shared/Stats";
 import QuestionTab from "@/components/shared/QuestionTab";
 import AnswersTab from "@/components/shared/AnswersTab";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Profile | DevFlow",
+  description:
+    "Platform for developers to collaborate, ask questions, and share knowledge within the developer community.",
+  icons: {
+    icon: "/assets/images/site-logo.svg",
+  },
+};
 
 const Page = async ({ params, searchParams }: URLProps) => {
   const { userId: clerkId } = auth();

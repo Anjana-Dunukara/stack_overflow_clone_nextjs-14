@@ -4,6 +4,16 @@ import Pagination from "@/components/shared/Pagination";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { getQuestionsByTagId } from "@/lib/actions/tag.actions";
 import { URLProps } from "@/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tag | DevFlow",
+  description:
+    "Platform for developers to collaborate, ask questions, and share knowledge within the developer community.",
+  icons: {
+    icon: "/assets/images/site-logo.svg",
+  },
+};
 
 const Page = async ({ params, searchParams }: URLProps) => {
   const result = await getQuestionsByTagId({
