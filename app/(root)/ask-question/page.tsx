@@ -6,7 +6,7 @@ import { auth } from "@clerk/nextjs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ask-quuestion | DevFlow",
+  title: "Ask-quuestion | DevFlow",
   description:
     "Platform for developers to collaborate, ask questions, and share knowledge within the developer community.",
   icons: {
