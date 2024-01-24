@@ -18,7 +18,7 @@ const NoResult = ({ title, description, link, linkTitle }: Props) => {
         alt="No result illustration"
         width={270}
         height={200}
-        className="block object-contain dark:hidden"
+        className="block h-[200px] w-[270px] object-contain dark:hidden"
       />
 
       <Image
@@ -26,7 +26,7 @@ const NoResult = ({ title, description, link, linkTitle }: Props) => {
         alt="No result illustration"
         width={270}
         height={200}
-        className="hidden object-contain dark:flex"
+        className="hidden h-[200px] w-[270px] object-contain dark:flex"
       />
 
       <h2 className="h2-bold text-dark200_light900 mt-8">{title}</h2>

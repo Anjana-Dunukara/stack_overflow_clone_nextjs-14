@@ -158,7 +158,7 @@ const Votes = ({
           width={18}
           height={18}
           alt="star"
-          className="cursor-pointer"
+          className="h-[18px] w-[18px] cursor-pointer"
           onClick={handleSave}
         />
       )}
