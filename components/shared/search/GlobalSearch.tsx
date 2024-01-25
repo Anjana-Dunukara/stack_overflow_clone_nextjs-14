@@ -65,10 +65,14 @@ const GlobalSearch = () => {
   }, [search, router, pathname, searchParams, query]);
 
   return (
+<<<<<<< HEAD
     <div
       className="relative w-full max-w-[600px] max-lg:hidden"
       ref={searchContainerRef}
     >
+=======
+    <div className="relative w-full max-w-[600px] max-lg:hidden">
+>>>>>>> job_feature
       <div className="background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-1 rounded-xl px-4">
         <Image
           src="/assets/icons/search.svg"
