@@ -2,7 +2,7 @@
 
 DevFlow is a feature-rich Stack Overflow clone built with Next.js 14, providing a platform for developers to collaborate, ask questions, and share knowledge within the developer community.
 
-![DevFlow](url_of_image)
+![DevFlow](https://github.com/Anjana-Dunukara/stack_overflow_clone_nextjs-14/blob/main/public/assets/images/DevFlow.PNG)
 
 ## Table of Contents
 
